@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/home/adil/development/mobile-app/test/android/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline-base/0.11.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="ca63c521b5745ae9a09629d7ca67ff6bc2a967fe">
+        <dex dex="/home/adil/development/mobile-app/test/android/app/build/intermediates/pre-dexed/debug/classes-35063529a4d326996fe8fa87e634a37223d7aa72.jar" />
+    </item>
+    <item
+        jar="/home/adil/development/mobile-app/test/android/app/build/intermediates/exploded-aar/test/react-native-share/unspecified/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="0a57e2a93a6046ac7697c6b7bf379304c1568436">
+        <dex dex="/home/adil/development/mobile-app/test/android/app/build/intermediates/pre-dexed/release/classes-22f5b03c26afb324e9c813a1446790d807d53b0b.jar" />
+    </item>
+    <item
+        jar="/home/adil/development/mobile-app/test/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.39.2/jars/libs/infer-annotations-1.5.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="5268ed090600db4ceb72b055927f4f9cbd79465c">
+        <dex dex="/home/adil/development/mobile-app/test/android/app/build/intermediates/pre-dexed/debug/infer-annotations-1.5-89191870b38e12c9927b466eec473e26ab42cad2.jar" />
+    </item>
+    <item
+        jar="/home/adil/.gradle/caches/modules-2/files-2.1/com.readystatesoftware.sqliteasset/sqliteassethelper/2.0.1/d5f02e4a4d65ec0fbb339f2e4228723d1540bb9f/sqliteassethelper-2.0.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="d5f02e4a4d65ec0fbb339f2e4228723d1540bb9f">
+        <dex dex="/home/adil/development/mobile-app/test/android/app/build/intermediates/pre-dexed/debug/sqliteassethelper-2.0.1-92a0e86049811cfede3552ca05c53d38592d1a18.jar" />
+    </item>
+    <item
+        jar="/home/adil/development/mobile-app/test/android/app/build/intermediates/exploded-aar/com.facebook.fresco/fbcore/0.11.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="98786c1770b531b9194fb6448b2a2692c64074b6">
+        <dex dex="/home/adil/development/mobile-app/test/android/app/build/intermediates/pre-dexed/debug/classes-8c3879900308ceaf7e280f2d1b2f116d9b2e2e38.jar" />
+    </item>
+    <item
+        jar="/home/adil/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.9.0/f824591a0016efbaeddb8300bee54832a1398cfa/okio-1.9.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="f824591a0016efbaeddb8300bee54832a1398cfa">
+        <dex dex="/home/adil/development/mobile-app/test/android/app/build/intermediates/pre-dexed/debug/okio-1.9.0-7243e4df8e16d08102653593fde79c9ed97d5f0a.jar" />
+    </item>
+    <item
+        jar="/home/adil/development/mobile-app/test/android/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline/0.11.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="3341b66c54367e777a0647e2db96c045329bfeab">
+        <dex dex="/home/adil/development/mobile-app/test/android/app/build/intermediates/pre-dexed/debug/classes-4cb14a68a08bbf80e9a7feda0ee40c9f19b5e423.jar" />
+    </item>
+    <item
+        jar="/home/adil/development/mobile-app/test/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="5c5699834e9722f1c288fea2de82725d078ba127">
+        <dex dex="/home/adil/development/mobile-app/test/android/app/build/intermediates/pre-dexed/release/classes-cc95fd667ce3e9a5a07203b33d00dfb56eac0fdc.jar" />
+    </item>
+    <item
+        jar="/home/adil/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.2.3/1a0113da2cab5f4c216b4e5e7c1dbfaa67087e14/jackson-core-2.2.3.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="1a0113da2cab5f4c216b4e5e7c1dbfaa67087e14">
+        <dex dex="/home/adil/development/mobile-app/test/android/app/build/intermediates/pre-dexed/debug/jackson-core-2.2.3-90b88ffde4fc085509cadc815b9933f19a9ba715.jar" />
+    </item>
+    <item
+        jar="/home/adil/development/mobile-app/test/android/app/build/intermediates/exploded-aar/test/react-native-android-sqlite/unspecified/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="6e0c3446c53f9677d4602c5c002b7e2b0df85e03">
+        <dex dex="/home/adil/development/mobile-app/test/android/app/build/intermediates/pre-dexed/release/classes-ad3fb2483d3c2049eb0b1edb8d9fa7fb7382a25c.jar" />
+    </item>
+    <item
+        jar="/home/adil/.gradle/caches/modules-2/files-2.1/javax.inject/javax.inject/1/6975da39a7040257bd51d21a231b76c915872d38/javax.inject-1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="6975da39a7040257bd51d21a231b76c915872d38">
+        <dex dex="/home/adil/development/mobile-app/test/android/app/build/intermediates/pre-dexed/debug/javax.inject-1-5985c912fe7a2f5de641fb02e82c4937faee7666.jar" />
+    </item>
+    <item
+        jar="/home/adil/development/mobile-app/test/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.39.2/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="035e9c4ef05bd4e0f34f48fbfb073f98fcf58af0">
+        <dex dex="/home/adil/development/mobile-app/test/android/app/build/intermediates/pre-dexed/debug/classes-907d698f166052ac7a481d37af7a85bd9b47a69e.jar" />
+    </item>
+    <item
+        jar="/home/adil/development/mobile-app/test/android/app/build/intermediates/exploded-aar/com.android.support/design/23.1.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="379471b2bd17d9737c050345c08e8c7d16589784">
+        <dex dex="/home/adil/development/mobile-app/test/android/app/build/intermediates/pre-dexed/debug/classes-2b6dd9a62d4024e64280c18650958ffbf5201ac1.jar" />
+    </item>
+    <item
+        jar="/home/adil/development/mobile-app/test/android/app/build/intermediates/exploded-aar/com.facebook.fresco/fresco/0.11.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="d31aadf33187c37a7cd63dc1b769f8c6e33f78c3">
+        <dex dex="/home/adil/development/mobile-app/test/android/app/build/intermediates/pre-dexed/debug/classes-a6331e77e318ca81ed359f2a5854b67026a7e1e8.jar" />
+    </item>
+    <item
+        jar="/home/adil/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp-urlconnection/3.4.1/63994437f62bc861bc20c605d12962f7246116d1/okhttp-urlconnection-3.4.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="63994437f62bc861bc20c605d12962f7246116d1">
+        <dex dex="/home/adil/development/mobile-app/test/android/app/build/intermediates/pre-dexed/debug/okhttp-urlconnection-3.4.1-a22f8c83fb4bdce264d14cd944aef229a06d130e.jar" />
+    </item>
+    <item
+        jar="/home/adil/development/extras/android/m2repository/com/android/support/support-annotations/23.2.1/support-annotations-23.2.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="ccb693bc0774fcb637246f7360de25b4af7df318">
+        <dex dex="/home/adil/development/mobile-app/test/android/app/build/intermediates/pre-dexed/release/support-annotations-23.2.1-5d287c637613c855c10993930dfa6d9e39d60766.jar" />
+    </item>
+    <item
+        jar="/home/adil/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp-ws/3.4.1/8ace66ef7002d98f633377c9e67daeeb196d8c3b/okhttp-ws-3.4.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="8ace66ef7002d98f633377c9e67daeeb196d8c3b">
+        <dex dex="/home/adil/development/mobile-app/test/android/app/build/intermediates/pre-dexed/debug/okhttp-ws-3.4.1-01fb125acec7f5eb9d4499f6cb3a751545d660e8.jar" />
+    </item>
+    <item
+        jar="/home/adil/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/3.0.0/5871fb60dc68d67da54a663c3fd636a10a532948/jsr305-3.0.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="5871fb60dc68d67da54a663c3fd636a10a532948">
+        <dex dex="/home/adil/development/mobile-app/test/android/app/build/intermediates/pre-dexed/debug/jsr305-3.0.0-96c9efd122c1422c5a58751bc4adf375666ae381.jar" />
+    </item>
+    <item
+        jar="/home/adil/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.4.1/c7c4f9e35c2fd5900da24f9872e3971801f08ce0/okhttp-3.4.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="c7c4f9e35c2fd5900da24f9872e3971801f08ce0">
+        <dex dex="/home/adil/development/mobile-app/test/android/app/build/intermediates/pre-dexed/debug/okhttp-3.4.1-43d31095e999bcabda72f040b96fcfdd403dc81c.jar" />
+    </item>
+    <item
+        jar="/home/adil/development/mobile-app/test/android/app/build/intermediates/exploded-aar/test/react-native-vector-icons/unspecified/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="65cdc1de25fc1d9dfeb754e918f5fa20350f9b28">
+        <dex dex="/home/adil/development/mobile-app/test/android/app/build/intermediates/pre-dexed/release/classes-86c1a7d93f310bec22e6f167d0f78f258d31f7ee.jar" />
+    </item>
+    <item
+        jar="/home/adil/development/mobile-app/test/android/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.2.1/jars/libs/internal_impl-23.2.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="607a3d0b8013b4ccbfeb0b7cb293351994e021fb">
+        <dex dex="/home/adil/development/mobile-app/test/android/app/build/intermediates/pre-dexed/release/internal_impl-23.2.1-94ea7df8fd8c167f187b8c045120c74e1ca2ce97.jar" />
+    </item>
+    <item
+        jar="/home/adil/.gradle/caches/modules-2/files-2.1/com.nineoldandroids/library/2.4.0/e9b63380f3a242dbdbf103a2355ad7e43bad17cb/library-2.4.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
+        <dex dex="/home/adil/development/mobile-app/test/android/app/build/intermediates/pre-dexed/debug/library-2.4.0-b157c429663d8db2b2df17122cacc31c6d396c81.jar" />
+    </item>
+    <item
+        jar="/home/adil/development/mobile-app/test/android/app/build/intermediates/exploded-aar/com.facebook.fresco/drawee/0.11.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="1137942adeb03984c1311b662363dd38fc238fd3">
+        <dex dex="/home/adil/development/mobile-app/test/android/app/build/intermediates/pre-dexed/debug/classes-5c95d955c4d3af35c3500a88a3d774c9eed431d5.jar" />
+    </item>
+    <item
+        jar="/home/adil/development/mobile-app/test/android/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.1.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="09c5e804bc67fc0580360043dff067df574a60d4">
+        <dex dex="/home/adil/development/mobile-app/test/android/app/build/intermediates/pre-dexed/debug/classes-c5138c5f220afbd7a8a054bdfefaa17b89330462.jar" />
+    </item>
+    <item
+        jar="/home/adil/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-tasks/1.4.0/d85884acf6810a3bbbecb587f239005cbc846dc4/bolts-tasks-1.4.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
+        <dex dex="/home/adil/development/mobile-app/test/android/app/build/intermediates/pre-dexed/debug/bolts-tasks-1.4.0-68d777164db109ba82a19855d3493aa5b0259bfd.jar" />
+    </item>
+    <item
+        jar="/home/adil/development/mobile-app/test/android/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="3be474b1b21b31cf2fa93fe6bd641ae108d96452">
+        <dex dex="/home/adil/development/mobile-app/test/android/app/build/intermediates/pre-dexed/release/classes-70ca5d64c771ef3548f68a1ef39c5a0a537dc8b3.jar" />
+    </item>
+    <item
+        jar="/home/adil/development/mobile-app/test/android/app/build/intermediates/exploded-aar/com.facebook.soloader/soloader/0.1.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="8f615bca00639150c9eb6175d4b5471193f70794">
+        <dex dex="/home/adil/development/mobile-app/test/android/app/build/intermediates/pre-dexed/debug/classes-5203bae862c218dbbbc3b3953647706ec3727fb3.jar" />
+    </item>
+    <item
+        jar="/home/adil/development/mobile-app/test/android/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline-okhttp3/0.11.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="2b8a01ad9da5d26d0067894c22e87597bca2c500">
+        <dex dex="/home/adil/development/mobile-app/test/android/app/build/intermediates/pre-dexed/debug/classes-d4f6652e9959735fccfa3a85dd2ab7f0fd4c7da3.jar" />
+    </item>
+
+</items>
