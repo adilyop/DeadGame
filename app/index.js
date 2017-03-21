@@ -75,9 +75,8 @@ var communityLoansMobileApp = React.createClass({
             return (
             <Image
                     style={styles.container}
-                    source={require('./images/screenEmpty.png')}
+                    source={require('./images/acceuil.png')}
                     >
-                    <ActivityIndicator style={styles.loadingContainer} size='large' />
                 </Image>
             );
         } else {
@@ -104,9 +103,8 @@ var styles = StyleSheet.create({
         top: 56
     },
     container: {
-        flex: 1,
-        flexDirection: 'column',
-        backgroundColor: '#F5FCFF',
+        width: ScreenWidth,
+        height: ScreenHeight
     },
     flex: {
         flex: 1,

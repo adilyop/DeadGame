@@ -456,7 +456,8 @@ class Dashboard extends Component {
                     visible={this.state.solutionModalVisible}
                     toggleModalSolution={this._toggleSolutionModal.bind(this)}
                 />
-                <View style={[styles.containerHeader]}>
+                <Image style={[styles.containerHeader]}
+                source={require('../../images/header.png')}>
                     <View style={styles.mainContainer}>
                         <View style={styles.subHeader1}>
                             <TouchableOpacity onPress={() => this._share()} style={styles.headerSettingShare}>
@@ -514,8 +515,9 @@ class Dashboard extends Component {
                             />
                         </ScrollView>
                     </View>
-                </View>
-                <View style={[styles.containerFooter]}>
+                </Image>
+                <Image style={[styles.containerFooter]}
+                source={require('../../images/footer.png')}>
                     <View style={styles.containerFooterBox}>
                         <View style={[styles.boxButtonLeft]}>
                             <TouchableOpacity style={styles.blockOK} onPress={() => this._solution()} >
@@ -577,7 +579,7 @@ class Dashboard extends Component {
                             </TouchableOpacity>
                         </View>
                     </View>
-                </View>
+                </Image>
             </View>
         );
     }
@@ -717,7 +719,8 @@ const styles = StyleSheet.create({
         height: width_window / 9,
         borderRadius: 10,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        
     },
     blockEmpty: {
         margin: 2,
@@ -819,7 +822,6 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     container: {
-        backgroundColor: '#964500',
         flex: 1,
         height: height,
         width: width,
@@ -855,17 +857,12 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     containerHeader: {
-        borderBottomWidth: 10,
-        borderBottomColor: '#ffeead',
-        borderRightWidth: 5,
-        borderRightColor: '#ffeead',
-        borderLeftWidth: 5,
-        borderLeftColor: '#ffeead',
-        height: (height_window) * 2 / 3
+        height: (height_window) * 2 / 3,
+        width: width
     },
     containerFooter: {
-        backgroundColor: '#ffeead',
-        height: (height_window) / 3
+        height: (height_window) / 3,
+        width: width
     },
     containerFooterBox: {
         flex: 1,
@@ -875,8 +872,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         paddingRight: 10,
         paddingLeft: 10,
-        width: width_window * 2 / 3,
-        backgroundColor: '#ffeead'
+        width: width_window * 2 / 3
     },
     boxButtonRight: {
         flex: 1,
