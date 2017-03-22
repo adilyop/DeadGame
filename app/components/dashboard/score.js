@@ -147,7 +147,7 @@ export default class Score extends Component {
                             <Text style={{ color: "black", fontSize: 15 }}> Time </Text>
                         </View>
                         <View style={styles.halfNumberListTime}>
-                            <Text style={{ color: "black", fontSize: 15 }}> Round </Text>
+                            <Text style={{ color: "black", fontSize: 15 }}> Attempt </Text>
                         </View>
                         <View style={styles.halfNumberListTime}>
                             <Text > </Text>

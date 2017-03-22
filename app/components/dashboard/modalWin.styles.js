@@ -90,12 +90,12 @@ export default styles = StyleSheet.create({
     },
     TextShare: {
         fontWeight: 'bold',
-        color: "#000",
+        color: "#fff",
         fontSize: 15,
     },
     TextRestart: {
         fontWeight: 'bold',
-        color: "#000",
+        color: "#fff",
         fontSize: 25,
     },
     TextWin: {

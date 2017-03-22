@@ -478,7 +478,7 @@ class Dashboard extends Component {
                             </View>
                             <View style={styles.halfNumberListTimeUp}>
                                 <View style={styles.halfNumberListTimeText}>
-                                    <Text style={styles.headerTitleUp}>   Round  {this.state.rows}   </Text>
+                                    <Text style={styles.headerTitleUp}>   Attempt  {this.state.rows}   </Text>
                                 </View>
                             </View>
                         </View>
@@ -490,10 +490,10 @@ class Dashboard extends Component {
                                 <Text style={styles.headerTitleDown} >Number</Text>
                             </View>
                             <View style={styles.halfNumberListTime}>
-                                <Text style={styles.headerTitleDown} >TORR</Text>
+                                <Text style={styles.headerTitleDown} >Bulls</Text>
                             </View>
                             <View style={styles.halfNumberListTime}>
-                                <Text style={styles.headerTitleDown} >WON</Text>
+                                <Text style={styles.headerTitleDown} >Cows</Text>
                             </View>
                             <View style={styles.halfNumberListTime}>
                                 <Text > </Text>

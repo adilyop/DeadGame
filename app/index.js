@@ -35,10 +35,10 @@ var App = React.createClass({
                 <Router>
                     <Schema name="modal" sceneConfig={Animations.FlatFloatFromRight} />
                     <Schema name="default" sceneConfig={Animations.FlatFloatFromRight}  />
-                    <Route name="dashboard" component={dashboard} title="dashboard"  initial={true}  />
+                    <Route name="dashboard" component={dashboard} title="dashboard" initial={true}   />
                     <Route name="share" component={share} title="share" />
                     <Route name="score" component={score} title="score"  />
-                    <Route name="howToPlay" component={howToPlay} title="howToPlay" />
+                    <Route name="howToPlay" component={howToPlay} title="howToPlay"  />
                 </Router>
             </View>
         );
@@ -77,6 +77,13 @@ var communityLoansMobileApp = React.createClass({
                     style={styles.container}
                     source={require('./images/acceuil.png')}
                     >
+                    <View > 
+                         <Image
+                    style={styles.logo}
+                    source={require('./images/icon.png')}
+                    >
+                </Image>
+                    </View>
                 </Image>
             );
         } else {
@@ -103,6 +110,10 @@ var styles = StyleSheet.create({
         top: 56
     },
     container: {
+        justifyContent: 'center',
+        flex: 1,
+        flexDirection: 'row',
+        alignItems: 'flex-end',
         width: ScreenWidth,
         height: ScreenHeight
     },
@@ -153,8 +164,8 @@ var styles = StyleSheet.create({
         fontSize: 20,
     },
     logo: {
-        height: 70,
-        width: 191
+        height: 60,
+        width: 50
     }
 });
 

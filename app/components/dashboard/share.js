@@ -199,7 +199,7 @@ const styles = StyleSheet.create({
 
 
     headerTitle: {
-        color: '#fff',
+        color: '#90949c',
         fontWeight: 'bold',
         fontSize: 30,
     },

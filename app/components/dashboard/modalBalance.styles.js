@@ -10,7 +10,7 @@ export default styles = StyleSheet.create({
     },
     //modal
     modal: {
-            backgroundColor:'rgba(80, 82, 82, 0.9)',
+            backgroundColor:'rgba(500, 500, 500, 0.9)',
         justifyContent: 'center',
         alignItems: "center",
         width: width,
