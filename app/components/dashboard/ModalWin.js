@@ -5,80 +5,111 @@ import {
     TouchableOpacity,
     ScrollView, Image,
     TextInput,
-    Modal,
-    ToastAndroid,
+    Modal, Dimensions,
+    ToastAndroid, Animated,
     ActivityIndicator
 } from 'react-native';
+let {width, height} = Dimensions.get('window');
+let height_window = height - 25;
 import Icon from 'react-native-vector-icons/Ionicons';
 import styles from './modalWin.styles';
 class ModalWin extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            heightView: new Animated.Value(0),
+            widthView: new Animated.Value(0),
+            visible: this.props.visible,
             loading: false
         };
     };
+    componentWillMount() {
+
+
+    }
+
+    _timerModal() {
+
+        var self = this;
+
+        setTimeout(() => {
+            Animated.timing(  // Animate over time
+                self.state.heightView,  // The animated value to drive
+                {
+                    toValue: height_window / 3,  // Animate to opacity: 1, or fully opaque
+                }).start();
+
+            Animated.timing(  // Animate over time
+                self.state.widthView,  // The animated value to drive
+                {
+                    toValue: width,  // Animate to opacity: 1, or fully opaque
+                }).start();
+
+        }, 1500);
+
+    }
+
     share() {
-        this.props.toggleModalWin();
-        this.props.share();
+
+            this.props.toggleModalWin();
+            this.props.share("header");
     }
     start() {
-        this.props.toggleModalWin();
+            this.props.toggleModalWin();
     }
     render() {
         return (
             <Modal
-                animationType={"fade"}
+                animationType={"slide"}
                 transparent={true}
                 visible={this.props.visible}
+                onShow={this._timerModal.bind(this)}
                 onRequestClose={() => undefined}
             >
-                <Image
-                    style={styles.container}
-                    source={require('../../images/artifice.png')}>
-                    <View style={styles.header}>
+                <View style={styles.header}>
+                </View>
+                <View style={styles.modal}>
+                    <View style={styles.modalLign}>
+                        <Image
+                            style={styles.modalImage}
+                            source={require('../../images/resolved.png')}>
+                        </Image>
                     </View>
+                    <Animated.View
+                        style={[styles.modalSecondLign, { height: this.state.heightView, width: this.state.widthView }]}
+
+                    >
 
 
-                    <View style={styles.modal}>
 
-                        <View style={styles.modalLign}>
+                        <Image style={[styles.record]}
+                            source={require('../../images/win.png')}>
+                            <Text style={styles.TextNumber}> {this.props.randomNumber} </Text>
+                            <Text style={styles.TextRecord}> {this.props.time} </Text>
+                        </Image>
 
-                            <View style={styles.modalColumn}>
-                                <Text style={styles.TextWin}>YOU WIN </Text>
-                                <Text style={styles.TextShare}> {this.props.time} </Text>
-                                <Text style={styles.TextShare}>ROUND {this.props.round} </Text>
-                            </View>
-                            <View style={styles.modalLign}>
-                                <Image
-                                    style={styles.modalImage}
-                                    source={require('../../images/bravo.png')}>
-                                </Image>
 
-                            </View>
-                        </View>
+                        <View style={styles.modalSecondLignButton}>
+                            <TouchableOpacity
+                                style={styles.buttonRestart}
 
-                        <View style={styles.modalSecondLign}>
+                                onPress={() => this.start()}>
+                                <Text style={styles.TextRestart}>RESTART</Text>
+                            </TouchableOpacity>
                             <TouchableOpacity style={styles.buttonShare} onPress={() => this.share()}>
                                 <Text style={styles.TextShare}>SHARE</Text>
                             </TouchableOpacity>
-                            <TouchableOpacity style={styles.buttonRestart} onPress={() => this.start()}>
-                                <Text style={styles.TextRestart}>RESTART</Text>
-                            </TouchableOpacity>
-
                         </View>
-                    </View>
+
+                    </Animated.View >
+                </View>
 
 
+                <View style={styles.containerFooterError}></View>
 
 
-
-                    <View style={styles.header}>
-                    </View>
-
-                </Image>
             </Modal>
         );
-    };
+    }
 }
 module.exports = ModalWin;

@@ -9,7 +9,7 @@ import {
     ToastAndroid,
     TouchableOpacity,
     TextInput,
-    StyleSheet,
+    StyleSheet, Vibration,
     ScrollView,
     ActivityIndicator,
     PanResponder, BackAndroid,
@@ -18,9 +18,11 @@ import {
 } from 'react-native';
 var {width, height} = Dimensions.get('window');
 var width_window = width;
-var height_window = height-20;
+var width_drag = width / 4;
+var height_window = height - 25;
 let CIRCLE_RADIUS = 36;
 let Window = Dimensions.get('window');
+import { takeSnapshot } from "react-native-view-shot";
 import ScrollableTabView, { ScrollableTabBar } from 'react-native-scrollable-tab-view';
 import Icon from 'react-native-vector-icons/Ionicons';
 import accueil from './accueil';
@@ -29,6 +31,7 @@ import ModalComponent from './ModalComponent';
 import ModalWin from './ModalWin';
 import ModalSolution from './ModalSolution';
 let self;
+
 class Dashboard extends Component {
     constructor(props) {
         super(props);
@@ -37,6 +40,15 @@ class Dashboard extends Component {
         });
 
         this.state = {
+            backgroundColorScrollview: 'grey',
+            contentHeight: 0,
+            scrollViewHeight: 0,
+            value: {
+                format: "png",
+                quality: 0.9,
+                result: "base64",
+                snapshotContentContainer: false,
+            },
             curTime: "00:00:00",
             curTimeInfo: "00:00:00",
             roundInfo: 0,
@@ -44,7 +56,7 @@ class Dashboard extends Component {
             solutionModalVisible: false,
             startModalVisible: true,
             visibleShare: false,
-            winModalVisible: false,
+            winModalVisible: true,//false
             menuModalVisible: false,
             listNumbers: [],
             backgroundColorNumber: "grey",
@@ -148,6 +160,14 @@ class Dashboard extends Component {
             onPanResponderRelease: (e, gesture) => { this._handlenumberPosition(this.state.pan9, gesture, 9) } //Step 4
         });
     }
+
+    _snap(refname) {
+        takeSnapshot(this.refs[refname], this.state.value)
+            .then(res => alert(res))
+            .catch(error => (alert(error)));
+    }
+
+
     componentWillMount() {
         this._timer(1000);
         var randomNumber = this.generateNumber()
@@ -159,10 +179,14 @@ class Dashboard extends Component {
         this.setState({ visible: false });
     }
 
-    _share() {
+    _share(refname) {
         this.setState({ winModalVisible: false })
-        var Actions = this.props.routes;
-        Actions.share();
+        takeSnapshot(this.refs[refname], this.state.value)
+            .then(res => {
+                var Actions = this.props.routes;
+                Actions.share({ shareContent: res });
+            })
+            .catch(error => (alert(error)));
     }
     _secondToTime(second) {
         var date = new Date(null);
@@ -212,7 +236,7 @@ class Dashboard extends Component {
         if (this.isDropZone(gesture, order).shouldRemove) { //Step 1
             showDraggable[order] = false;
             this.setState({
-                showDraggable: showDraggable //Step 3
+                showDraggable: showDraggable,
             });
         } else {
             Animated.spring(
@@ -227,6 +251,7 @@ class Dashboard extends Component {
     }
 
     _replay() {
+        this.refs._scrollView.scrollTo({ x: 0, y: 0, Animated: true });
         this.setState({
             rows: 0,
             second: 0,
@@ -241,6 +266,9 @@ class Dashboard extends Component {
         this._recync();
     }
     _validate() {
+        setTimeout(() => {
+            this.refs._scrollView.scrollTo({ x: 0, y: this.state.scrollViewHeight, Animated: true });
+        }, 500);
         var numberProposed = this.state.numberProposed
         var isValide = true;
         for (var i = 0; i < numberProposed.length; i++) {
@@ -253,16 +281,26 @@ class Dashboard extends Component {
             var resCampare = this._campare(numberProposed)
             var listNumbers = this.state.listNumbers;
             if (resCampare.mort == 4) {
+                Vibration.vibrate();
+                this.setState({
+                    backgroundColorScrollview: '#1abc9c',
+                    curTimeInfo: this.state.curTime,
+                    roundInfo: this.state.rows + 1,
+                    rows: this.state.rows + 1,
+                })
                 addScoreRow(this.state.curTime, this.state.rows, (data) => {
-                    this.setState({ curTimeInfo: data.time, roundInfo: data.round + 1 })
-                    this._showWinModal()
-                });;
+                });
+                this._showWinModal()
+            } else {
+                this.setState({
+                    rows: this.state.rows + 1,
+                    backgroundColorScrollview: 'grey'
+                })
             }
             listNumbers.push(resCampare);
             this.setState({
-                rows: this.state.rows + 1,
                 numberProposed: ["_", "_", "_", "_"],
-                listNumbers: listNumbers //Step 3
+                listNumbers: listNumbers
             });
         } else {
             ToastAndroid.show('error: Empty digit', ToastAndroid.SHORT);
@@ -314,11 +352,12 @@ class Dashboard extends Component {
         })
     }
     isDropZone(gesture, order) {     //Step 2
+
         var dz0 = this.state.dropZoneValues0;
         var dz1 = this.state.dropZoneValues1;
         var dz2 = this.state.dropZoneValues2;
         var dz3 = this.state.dropZoneValues3;
-        if (gesture.moveX > (dz0.x + 80) && gesture.moveX < dz0.x + dz0.height + 80) {
+        if (gesture.moveX > (dz0.x + width_drag) && gesture.moveX < dz0.x + dz0.height + width_drag) {
             var numberProposed = this.state.numberProposed;
             if (numberProposed[0] != "_")
                 return { shouldRemove: false, digit: 0 }
@@ -328,7 +367,7 @@ class Dashboard extends Component {
             })
             return { shouldRemove: true, digit: 0 }
         }
-        else if (gesture.moveX > (dz1.x + 80) && gesture.moveX < dz1.x + dz1.height + 80) {
+        else if (gesture.moveX > (dz1.x + width_drag) && gesture.moveX < dz1.x + dz1.height + width_drag) {
             var numberProposed = this.state.numberProposed;
             if (numberProposed[1] != "_")
                 return { shouldRemove: false, digit: 1 }
@@ -338,7 +377,7 @@ class Dashboard extends Component {
             })
             return { shouldRemove: true, digit: 1 }
         }
-        else if (gesture.moveX > (dz2.x + 80) && gesture.moveX < dz2.x + dz2.height + 80) {
+        else if (gesture.moveX > (dz2.x + width_drag) && gesture.moveX < dz2.x + dz2.height + width_drag) {
             var numberProposed = this.state.numberProposed;
             if (numberProposed[2] != "_")
                 return { shouldRemove: false, digit: 2 }
@@ -348,7 +387,7 @@ class Dashboard extends Component {
             })
             return { shouldRemove: true, digit: 2 }
         }
-        else if (gesture.moveX > (dz3.x + 80) && gesture.moveX < dz3.x + dz3.height + 80) {
+        else if (gesture.moveX > (dz3.x + width_drag) && gesture.moveX < dz3.x + dz3.height + width_drag) {
             var numberProposed = this.state.numberProposed;
             if (numberProposed[3] != "_")
                 return { shouldRemove: false, digit: 3 }
@@ -369,7 +408,7 @@ class Dashboard extends Component {
     }
     _renderNumbers(item, sectionID, rowID) {
         return (
-            <TouchableOpacity style={styles.NumberListContainer}>
+            <TouchableOpacity style={[styles.NumberListContainer, { backgroundColor: this.state.backgroundColorScrollview }]}       >
                 <View style={styles.NumberListTime}>
                     <View style={styles.doubeNumberListTime}>
                         <Text style={{ color: "black", fontSize: 20 }}> {item.numberProposed} </Text>
@@ -412,12 +451,12 @@ class Dashboard extends Component {
         });
     };
     _toggleWinModal() {
-        this._replay();
         this.setState((prevState, props) => {
             return {
                 winModalVisible: !prevState.winModalVisible
             }
         });
+        this._replay();
     };
     _toggleSolutionModal() {
         this._replay();
@@ -432,13 +471,14 @@ class Dashboard extends Component {
         this._replay();
         this._timer(1000);
     }
+
     render() {
+        var self = this;
         return (
-            <View
+            <View ref="header" collapsable={false}
                 style={styles.container}
             //source={require('../../images/screenEmpty.png')}
             >
-
                 <ModalComponent
                     visible={this.state.menuModalVisible}
                     toggleModalBalance={this._toggleMenuModal.bind(this)}
@@ -449,6 +489,7 @@ class Dashboard extends Component {
                     toggleModalWin={this._toggleWinModal.bind(this)}
                     time={this.state.curTimeInfo}
                     round={this.state.roundInfo}
+                    randomNumber={this.state.randomNumber}
                     share={this._share.bind(this)}
                 />
                 <ModalSolution
@@ -457,10 +498,10 @@ class Dashboard extends Component {
                     toggleModalSolution={this._toggleSolutionModal.bind(this)}
                 />
                 <Image style={[styles.containerHeader]}
-                source={require('../../images/header.png')}>
-                    <View style={styles.mainContainer}>
+                    source={require('../../images/header.png')}>
+                    <View style={styles.mainContainer} >
                         <View style={styles.subHeader1}>
-                            <TouchableOpacity onPress={() => this._share()} style={styles.headerSettingShare}>
+                            <TouchableOpacity onPress={() => this._share("header")} style={styles.headerSettingShare}>
                                 <Icon name="md-share" color='#fff' size={40} > </Icon>
                             </TouchableOpacity>
                             <TouchableOpacity onPress={() => this._showModal()} style={styles.headerSettingContainer} >
@@ -473,12 +514,12 @@ class Dashboard extends Component {
                         <View style={styles.NumberListTimeUp}>
                             <View style={styles.halfNumberListTimeUp}>
                                 <View style={styles.halfNumberListTimeText}>
-                                    <Text style={styles.headerTitleUp} >   Time  {this.state.curTime}   </Text>
+                                    <Text style={styles.headerTitleUp} >  {this.state.curTime}   </Text>
                                 </View>
                             </View>
                             <View style={styles.halfNumberListTimeUp}>
                                 <View style={styles.halfNumberListTimeText}>
-                                    <Text style={styles.headerTitleUp}>   Attempt  {this.state.rows}   </Text>
+                                    <Text style={styles.headerTitleUp}>   Attempts  {this.state.rows}   </Text>
                                 </View>
                             </View>
                         </View>
@@ -499,17 +540,15 @@ class Dashboard extends Component {
                                 <Text > </Text>
                             </View>
                         </View>
-
-
-
-
-
-
-                        <ScrollView tabLabel='numbers' style={styles.tabView}>
+                        <ScrollView ref="_scrollView" collapsable={false} tabLabel='numbers' style={styles.tabView}>
                             <ListView
                                 style={styles.tabView}
                                 enableEmptySections={true}
                                 showsVerticalScrollIndicator={true}
+
+                                onContentSizeChange={(w, h) => this.setState({ contentHeight: h })}
+                                onLayout={ev => this.setState({ scrollViewHeight: ev.nativeEvent.layout.height + 30 })}
+
                                 dataSource={this.dataSource.cloneWithRows(this.state.listNumbers)}
                                 renderRow={(rowData, sectionID, rowID) => this._renderNumbers(rowData, sectionID, rowID)}
                             />
@@ -517,7 +556,7 @@ class Dashboard extends Component {
                     </View>
                 </Image>
                 <Image style={[styles.containerFooter]}
-                source={require('../../images/footer.png')}>
+                    source={require('../../images/footer.png')}>
                     <View style={styles.containerFooterBox}>
                         <View style={[styles.boxButtonLeft]}>
                             <TouchableOpacity style={styles.blockOK} onPress={() => this._solution()} >
@@ -570,16 +609,17 @@ class Dashboard extends Component {
                         <View style={[styles.boxButtonRight]}>
                             <TouchableOpacity visible={false} style={styles.blockOK} onPress={() => this._validate()} >
                                 <Icon name="md-checkbox-outline" color='white' size={width_window / 9}> </Icon>
-                                <Text style={{ color: 'white', fontSize: 10 }}>valid</Text>
+                                <Text style={{ color: 'white', fontSize: 10 }}>Valid</Text>
                             </TouchableOpacity>
 
                             <TouchableOpacity style={styles.blockOK} onPress={() => this._recync()} >
-                                <Icon name="md-undo" color='white' size={width_window / 9}> </Icon>
-                                <Text style={{ color: 'white', fontSize: 10 }}>clean</Text>
+                                <Icon name="ios-trash" color='white' size={width_window / 9}> </Icon>
+                                <Text style={{ color: 'white', fontSize: 10 }}>Clean</Text>
                             </TouchableOpacity>
                         </View>
                     </View>
                 </Image>
+                <View style={styles.containerFooterError}></View>
             </View>
         );
     }
@@ -720,7 +760,7 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         justifyContent: 'center',
         alignItems: 'center',
-        
+
     },
     blockEmpty: {
         margin: 2,
@@ -858,6 +898,11 @@ const styles = StyleSheet.create({
     },
     containerHeader: {
         height: (height_window) * 2 / 3,
+        width: width
+    },
+    containerFooterError: {
+        height: 25,
+        backgroundColor: '#964500',
         width: width
     },
     containerFooter: {

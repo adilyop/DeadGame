@@ -37,12 +37,12 @@ export default class HowToPlay extends Component {
             <View style={styles.info} >
                 <Text>Commencer par glisser les chiffres dans les champs gris vides. Et essayer de deviner le nombre dans un minimum des essais.</Text>
                 <Text></Text>
-                <Text>Le nombre de "COWS" ca veut dire les chiffres trouvés mais qui nont pas dans leur place.</Text>
-                <Text>Le nombre de "BULLS" ca veut dire les chiffres trouvés et qui sont dans leur place exacte.</Text>
-                <Text>trouver 4 "BULLS" pour gagner!</Text>
+                <Text>Le nombre de "COWS" signifie les chiffres trouvés mais mal placés.</Text>
+                <Text>Le nombre de "BULLS" signifie les chiffres trouvés et bien placés.</Text>
+                <Text style={{ fontWeight: 'bold' ,color: 'blue', fontSize: 15, }}>Obtenir 4 "BULLS" pour gagner!</Text>
                 <Text></Text>
                 <Text style={{ fontWeight: 'bold' }} >Exemple1: </Text>
-                <Text>Numero a deviner est :</Text>
+                <Text>Numéro à deviner est :</Text>
                 <View style={styles.containerNumbersRow1}>
                     <View style={[styles.blockEmpty, { backgroundColor: "green" }]}>
                         <Text style={{ color: "white", fontSize: 20 }}> 3 </Text>
@@ -74,8 +74,8 @@ export default class HowToPlay extends Component {
                     </View>
                 </View>
                 <Text>Le resultat sera "BULLS":1 et "COWS" :1</Text>
-                <Text>Ce qui signifie que tu as trouver un chiffre et il est dans son place exacte(3)</Text>
-                <Text>Et un chiffre mais n'est pas dans leu rprpre place(5)</Text>
+                <Text>BULLS :1 signifie qu'un chiffre est trouvé et bien placé(3)</Text>
+                <Text>COWS :1 signifie qu'un chiffre est trouvé mais mal placé(5)</Text>
                 <Text></Text>
                 <Text style={{ fontWeight: 'bold' }} >Exemple2: </Text>
                 <Text>Si tu choisis le nombre: </Text>
@@ -94,9 +94,9 @@ export default class HowToPlay extends Component {
                     </View>
                 </View>
                 <Text>Le resultat sera "BULLS":0 et "COWS" :2</Text>
-                <Text>Ce que signifie aucun chiffre n'est trouvé dans sa place exacte(BULLS = 0)</Text>
-                <Text>Et tu as trouvé deux chiffres(7,5) mais qui sont pas dans leurs place exacte (COWS = 2)</Text>
-                <Text>Ok! je te laisse la main, c'est ton tour !.</Text>
+                <Text>BULLS :0 signifie qu'aucun chiffre n'est trouvé dans sa position exacte</Text>
+                <Text>COWS :2 signifie que deux chiffres(7,5) est trouvés mais mal placés</Text>
+                <Text></Text>
                 <Text style={{ fontWeight: 'bold' ,color: 'red', fontSize: 15, }}>AMUSES-TOI !</Text>
             </View>
             </ScrollView>
@@ -108,12 +108,12 @@ export default class HowToPlay extends Component {
             <View style={styles.info} >
                 <Text>Start by dragging digits to the empty grey fields. And try to guess the number in the least attempts.</Text>
                 <Text></Text>
-                <Text>Numbers of "COWS" means correct digits selected but wrong place.</Text>
-                <Text>Numbers of "BULLS" means correct digits selected in theire right place.</Text>
-                <Text>Get 4 "BULLS" to win!</Text>
+                <Text>Numbers of "COWS" means correct digits selected but wrong position.</Text>
+                <Text>Numbers of "BULLS" means correct digits selected and right position.</Text>
+                <Text style={{ fontWeight: 'bold' ,color: 'blue', fontSize: 15, }}>Get 4 "BULLS" to win!</Text>
                 <Text></Text>
                 <Text style={{ fontWeight: 'bold' }} >Example1: </Text>
-                <Text>Number to guess is :</Text>
+                <Text >Number to guess is :</Text>
                 <View style={styles.containerNumbersRow1}>
                     <View style={[styles.blockEmpty, { backgroundColor: "green" }]}>
                         <Text style={{ color: "white", fontSize: 20 }}> 3 </Text>
@@ -129,8 +129,7 @@ export default class HowToPlay extends Component {
                     </View>
                 </View>
 
-                <Text> let's try to find it ...</Text>
-                <Text> In your first attempt you shose the number :</Text>
+                <Text> If you choose :</Text>
                 <View style={styles.containerNumbersRow1}>
                     <View style={[styles.blockEmpty, { backgroundColor: "green" }]}>
                         <Text style={{ color: "white", fontSize: 20 }}> 3 </Text>
@@ -145,12 +144,12 @@ export default class HowToPlay extends Component {
                         <Text style={{ color: "white", fontSize: 20 }}> 1 </Text>
                     </View>
                 </View>
-                <Text>the result will be BULLS :1 and COWS :1</Text>
-                <Text>witch means you have found one digit and it's in the right place (3)</Text>
-                <Text>and one digit but it's not in the right place (5)</Text>
+                <Text>The result will be BULLS :1 , COWS :1</Text>
+                <Text>BULLS :1 means one digit in the right position (3)</Text>
+                <Text>COWS :1 means one digit is guessed but misplaced (5)</Text>
                 <Text></Text>
                 <Text style={{ fontWeight: 'bold' }} >Example2: </Text>
-                <Text>if you choose the number :</Text>
+                <Text>If you choose the number :</Text>
                 <View style={styles.containerNumbersRow1}>
                     <View style={[styles.blockEmpty, { backgroundColor: "grey" }]}>
                         <Text style={{ color: "white", fontSize: 20 }}> 7 </Text>
@@ -165,10 +164,10 @@ export default class HowToPlay extends Component {
                         <Text style={{ color: "white", fontSize: 20 }}> 2 </Text>
                     </View>
                 </View>
-                <Text>the result will be BULLS :0 and COWS :2</Text>
-                <Text>witch mean no digit is in the correct place (BULLS = 0)</Text>
-                <Text>And you found two digits(7,5) but they aren't in the correct place (COWS = 2)</Text>
-                <Text>It's your turn now.</Text>
+                <Text>the result will be BULLS :0 , COWS :2</Text>
+                <Text>BULLS :0 means no digit is in the right position </Text>
+                <Text>COWS :2 means two digits(7,5) are guessed but misplaced.</Text>
+                <Text></Text>
                 <Text style={{ fontWeight: 'bold' ,color: 'red', fontSize: 15, }}>ENJOY !</Text>
             </View>
             </ScrollView>
@@ -206,6 +205,7 @@ export default class HowToPlay extends Component {
                         {this.francais()}
                     </View>
                 </ScrollableTabView>
+                <View style={styles.containerFooterError}></View>
             </View>
         );
     }
@@ -216,6 +216,12 @@ module.exports = HowToPlay;
 const styles = StyleSheet.create({
     settingShare: {
         marginLeft: 10,
+    },
+
+    containerFooterError: {
+        height: 25,
+        backgroundColor: 'white',
+        width: width
     },
     containerNumbersRow1: {
         flexDirection: 'row',

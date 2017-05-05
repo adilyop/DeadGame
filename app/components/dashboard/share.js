@@ -18,7 +18,19 @@ import Icon from 'react-native-vector-icons/Ionicons';
 var {width, height} = Dimensions.get('window');
 
 export default class ShareSocial extends Component {
+    constructor(props) {
+        super(props);
 
+        this.state = {
+            shareFile: ""
+        }
+    }
+    componentWillMount() {
+        let shareContent = this.props.shareContent;
+        this.setState({
+                shareFile: shareContent
+            });
+    }
     onPrevious() {
         var Actions = this.props.routes;
         if (this.props.onPrevious) {
@@ -33,8 +45,14 @@ export default class ShareSocial extends Component {
         let shareOptions = {
             title: "Share this link",
             message: "Help me to resolve this",
-            url: "http://facebook.github.io/react-native/",
+            url: "google play Guess the number",
             subject: "Share Link" //  for email
+        };
+        let shareImageBase64 = {
+            title: "Try To guess this number in the least attempts",
+            message: "Hi! ",
+            url: "data:image/png;base64,"+this.state.shareFile,
+            subject: "Guess the Number" //  for email
         };
         return (
             <View style={styles.container}>
@@ -43,18 +61,18 @@ export default class ShareSocial extends Component {
                         <TouchableOpacity onPress={() => this.onPrevious()} style={styles.settingShare}>
                             <Icon name="ios-arrow-back" color='#fff' size={40} > </Icon>
                         </TouchableOpacity>
-                <Text style={styles.headerTitle}>
-                        SHARE
+                        <Text style={styles.headerTitle}>
+                            SHARE
                     </Text>
-                    <TouchableOpacity  style={styles.settingShare}>
-                        <Icon name="ios-arrow-back" color='#2c3e50' size={40} > </Icon>
-                    </TouchableOpacity>
+                        <TouchableOpacity style={styles.settingShare}>
+                            <Icon name="ios-arrow-back" color='#2c3e50' size={40} > </Icon>
+                        </TouchableOpacity>
                     </View>
                     <Button iconSrc={{ uri: TWITTER_ICON }}
                         onPress={() => {
                             this.onPrevious();
                             setTimeout(() => {
-                                Share.shareSingle(Object.assign(shareOptions, {
+                                Share.shareSingle(Object.assign(shareImageBase64, {
                                     "social": "twitter"
                                 }));
                             }, 500);
@@ -64,7 +82,7 @@ export default class ShareSocial extends Component {
                         onPress={() => {
                             this.onPrevious();
                             setTimeout(() => {
-                                Share.shareSingle(Object.assign(shareOptions, {
+                                Share.shareSingle(Object.assign(shareImageBase64, {
                                     "social": "whatsapp"
                                 }));
                             }, 500);
@@ -74,7 +92,7 @@ export default class ShareSocial extends Component {
                         onPress={() => {
                             this.onPrevious();
                             setTimeout(() => {
-                                Share.shareSingle(Object.assign(shareOptions, {
+                                Share.shareSingle(Object.assign(shareImageBase64, {
                                     "social": "facebook"
                                 }));
                             }, 500);
@@ -84,7 +102,7 @@ export default class ShareSocial extends Component {
                         onPress={() => {
                             this.onPrevious();
                             setTimeout(() => {
-                                Share.shareSingle(Object.assign(shareOptions, {
+                                Share.shareSingle(Object.assign(shareImageBase64, {
                                     "social": "googleplus"
                                 }));
                             }, 500);
@@ -94,33 +112,18 @@ export default class ShareSocial extends Component {
                         onPress={() => {
                             this.onPrevious();
                             setTimeout(() => {
-                                Share.shareSingle(Object.assign(shareOptions, {
+                                Share.shareSingle(Object.assign(shareImageBase64, {
                                     "social": "email"
                                 }));
                             }, 500);
                         }}>Email</Button>
                     <View style={styles.hr}></View>
-                    <Button
-                        iconSrc={{ uri: CLIPBOARD_ICON }}
-                        onPress={() => {
-                            this.onPrevious();
-                            setTimeout(() => {
-                                if (typeof shareOptions["url"] !== undefined) {
-                                    Clipboard.setString(shareOptions["url"]);
-                                    if (Platform.OS === "android") {
-                                        ToastAndroid.show('Link is copied', ToastAndroid.SHORT);
-                                    } else if (Platform.OS === "ios") {
-                                        AlertIOS.alert('Link is copied');
-                                    }
-                                }
-                            }, 500);
-                        }}>Copy Link</Button>
                     <View style={styles.hr}></View>
                     <Button iconSrc={{ uri: MORE_ICON }}
                         onPress={() => {
                             this.onPrevious();
                             setTimeout(() => {
-                                Share.open(shareOptions)
+                                Share.open(shareImageBase64)
                             }, 500);
                         }}>More</Button>
                 </ScrollView>
@@ -203,7 +206,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         fontSize: 30,
     },
-     subHeader1: {
+    subHeader1: {
         justifyContent: 'space-between',
         alignItems: "center",
         flexDirection: 'row',

@@ -137,19 +137,19 @@ export default class Score extends Component {
 
                 <TouchableOpacity style={styles.NumberListContainer}>
                     <View style={styles.NumberListTime}>
-                        <View style={styles.halfNumberListTime}>
+                        <View style={styles.emptyHalfNumberListTime}>
                             <Text > </Text>
                         </View>
                         <View style={styles.halfNumberListTime}>
-                            <Text style={{ color: "black", fontSize: 15 }}> Order </Text>
+                            <Text style={{ color: "black", fontSize: 15 }}>Order</Text>
                         </View>
                         <View style={styles.doubeNumberListTime}>
-                            <Text style={{ color: "black", fontSize: 15 }}> Time </Text>
+                            <Text style={{ color: "black", fontSize: 15 }}>Time</Text>
                         </View>
                         <View style={styles.halfNumberListTime}>
-                            <Text style={{ color: "black", fontSize: 15 }}> Attempt </Text>
+                            <Text style={{ color: "black", fontSize: 15 }}>Attempts</Text>
                         </View>
-                        <View style={styles.halfNumberListTime}>
+                        <View style={styles.emptyHalfNumberListTime}>
                             <Text > </Text>
                         </View>
                     </View>
@@ -166,6 +166,8 @@ export default class Score extends Component {
                     />
                 </ScrollView>
                 {this._renderfooter()}
+
+                <View style={styles.containerFooterError}></View>
             </View>
         );
     }
@@ -257,7 +259,7 @@ const styles = StyleSheet.create({
         borderBottomWidth: 1,
         borderBottomColor: 'black'
     },
-    halfNumberListTime: {
+    emptyHalfNumberListTime: {
         alignItems: 'center',
         flex: 1,
         height: 30,
@@ -265,9 +267,17 @@ const styles = StyleSheet.create({
         borderBottomWidth: 1,
         borderBottomColor: 'black'
     },
-    doubeNumberListTime: {
+    halfNumberListTime: {
         alignItems: 'center',
         flex: 2,
+        height: 30,
+        backgroundColor: 'grey',
+        borderBottomWidth: 1,
+        borderBottomColor: 'black'
+    },
+    doubeNumberListTime: {
+        alignItems: 'center',
+        flex: 3,
         height: 30,
         backgroundColor: 'grey',
         borderBottomWidth: 1,
@@ -366,6 +376,11 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         color: "#000",
         fontSize: 30,
+    },
+    containerFooterError: {
+        height: 25,
+        backgroundColor: '#2c3e50',
+        width: width
     }
 });
 module.exports = Score;

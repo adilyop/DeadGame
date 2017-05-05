@@ -24,7 +24,7 @@ class ModalSolution extends Component {
     render() {
         return (
             <Modal
-                animationType={"fade"}
+                animationType={"slide"}
                 transparent={true}
                 visible={this.props.visible}
                 onRequestClose={() => undefined}
